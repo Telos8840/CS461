@@ -121,7 +121,7 @@ namespace TestGame
             if (newState.IsKeyDown(Keys.Left) && oldState.IsKeyDown(Keys.Left) && newState.IsKeyDown(Keys.Down) == false && newState.IsKeyDown(Keys.Right) == false && newState.IsKeyDown(Keys.Up) == false)
             {
                 direction = 1;
-                position.X -= 8;
+                position.X -= 4;
                 if (timer > 100f){
                     currentFrame++;
                     timer = 0f;
@@ -130,7 +130,7 @@ namespace TestGame
             else if (newState.IsKeyDown(Keys.Right) && oldState.IsKeyDown(Keys.Right) && newState.IsKeyDown(Keys.Left) == false && newState.IsKeyDown(Keys.Down) == false && newState.IsKeyDown(Keys.Up) == false)
             {
                 direction = 2;
-                position.X += 8;
+                position.X += 4;
                 if (timer > 100f)
                 {
                     currentFrame++;
@@ -140,7 +140,7 @@ namespace TestGame
             else if (newState.IsKeyDown(Keys.Down) && oldState.IsKeyDown(Keys.Down) && newState.IsKeyDown(Keys.Left) == false && newState.IsKeyDown(Keys.Right) == false && newState.IsKeyDown(Keys.Up) == false)
             {
                 direction = 0;
-                position.Y += 8;
+                position.Y += 4;
                 if (timer > 100f)
                 {
                     currentFrame++;
@@ -150,7 +150,7 @@ namespace TestGame
             else if (newState.IsKeyDown(Keys.Up) && oldState.IsKeyDown(Keys.Up) && newState.IsKeyDown(Keys.Left) == false && newState.IsKeyDown(Keys.Right) == false && newState.IsKeyDown(Keys.Down) == false)
             {
                 direction = 3;
-                position.Y -= 8;
+                position.Y -= 4;
                 if (timer > 100f)
                 {
                     currentFrame++;
