@@ -15,9 +15,9 @@ namespace TestGame
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
-    public class Scene : Microsoft.Xna.Framework.DrawableGameComponent
+    public class SceneView : Microsoft.Xna.Framework.DrawableGameComponent
     {
-        public Scene(Game game) : base(game)
+        public SceneView(Game game) : base(game)
         {
             // TODO: Construct any child components here
         }
