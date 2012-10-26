@@ -21,7 +21,7 @@ namespace TestGame
 
         public class monster
         {
-            //TODO: Constructor
+            //
         }
         public class poop
         {
