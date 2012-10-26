@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Element.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="SceneManager.cs" />

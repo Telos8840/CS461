@@ -19,21 +19,30 @@ namespace TestGame
         public int width;
         public int x;
         public int y;
-        ArrayList objects = new ArrayList();
+        public bool visible;
+        //array of Elements
+        public ArrayList elements = new ArrayList();
 
+        public void AddElement(Element newElement){
+            elements.Add(newElement);
+        }
+
+        public void RemoveElement(int index)
+        {
+            elements.RemoveAt(index);
+        }
         public Scene(int x, int y, Texture2D background)
         {
-            
+            this.x = x;
+            this.y = y;
+            this.width = background.Bounds.Width;
+            this.height = background.Bounds.Height;
+            this.background = background;
         }
         public Scene(int x, int y, int height, int width, Texture2D background)
         {
 
         }
-        public Scene(int x, int y, Texture2D background)
-        {
 
-        }
-        public void Draw(GameTime gametime){
-        }
     }
 }
