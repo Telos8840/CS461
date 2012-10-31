@@ -5,6 +5,10 @@ using System.Text;
 
 namespace TestGame
 {
+    //Task currentTask;
+    //State currentState;
+    //ArrayList<Task> tasks = [];
+
     class Monster
     {
         private enum monster_attr
@@ -59,6 +63,26 @@ namespace TestGame
             //TODO:  I.     Check to see if there is an play_item[ball] on the grid         
             //       II.    3D implementation?!
         }
-
+        public class update
+        {
+        //    if(tasks.count == 0)
+        //        continueWalk = true;
+        //    else if (boolean && currentState == wait)
+        //        break;
+        //    else{
+        //        continueWalk = false;
+        //        currentState = go;
+        //    }
+        }
+        public class createTask(Task task)
+        {
+            //for (int i = 0; i < task.length ; i++){
+            //    if (task[i].priority < object.priority)
+            //    {
+            //        task.add(object , i);
+            //        i = task.length;
+            //    }
+            //}
+        }
     }
 }
