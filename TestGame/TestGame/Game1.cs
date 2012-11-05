@@ -18,6 +18,8 @@ namespace TestGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+
+        SpriteFont Font;
         bool animateTo = false;
         StateManager statemanager = new StateManager();
         SceneManager scenemanager = new SceneManager();
@@ -46,6 +48,7 @@ namespace TestGame
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Font = Content.Load<SpriteFont>("Times New Roman");
             line = new Texture2D(this.GraphicsDevice, 1, 1);
             line.SetData(new[] { Color.Black });
             base.Initialize();
@@ -303,6 +306,7 @@ namespace TestGame
                     {
                         scenemanager.PushScene(new Scene(100, 100, player1));
                         scenemanager.currentScene.AddElement(new Element(300, 100, player1));
+                        scenemanager.currentScene.AddElement(new Element(200, 200,100,100, Font, Color.Red,@"Initilize"));
                         scenemanager.currentScene.visible = true;
                     }
                     break;

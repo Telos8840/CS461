@@ -22,6 +22,21 @@ namespace TestGame
         public int zlayer;
         public int dataID;
         public int type;
+        public SpriteFont Font;
+        public Color color;
+        public string text = "";
+
+        public Element(int x, int y, int width, int height, SpriteFont Font, Color color, String text)
+        {
+            this.x = x;
+            this.y = y;
+            this.Font = Font;
+            this.color = color;
+            this.text = text;
+            this.width = width;
+            this.height = height;
+            this.visible = true;
+        }
 
         public Element(int x,int y, Texture2D image)
         {
