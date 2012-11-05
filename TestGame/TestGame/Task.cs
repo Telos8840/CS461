@@ -27,13 +27,5 @@ namespace TestGame
                 _currentstate = value; 
             }
         }
-
-        public TaskManager()
-        {
-            _currentTask = Tasks.initilize;
-        }
-    }
-		
-
     }
 }
