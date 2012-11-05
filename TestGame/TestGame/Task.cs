@@ -5,11 +5,35 @@ using System.Text;
 
 namespace TestGame
 {
-    //int priorty = 0;
-    
     class Task
     {
+	public enum Tasks
+	{
+	   initilize;
+	   priorty;
+	   go;
+	   stop;
+	   
+	}
+	private Tasks _currentTask;
+	public Tasks currentTask
+	{
+	    get
+            { 
+                return _currentTask; 
+            }
+            set 
+            {
+                _currentstate = value; 
+            }
+        }
 
+        public TaskManager()
+        {
+            _currentTask = Tasks.initilize;
+        }
+    }
+		
 
     }
 }
