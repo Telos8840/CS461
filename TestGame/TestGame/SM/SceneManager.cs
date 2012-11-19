@@ -26,19 +26,37 @@ namespace TestGame
                _currentScene = value;
            }
        }
+       private ContentManager _contentManager;
+       public ContentManager contentManager
+       {
+           get
+           {
+               return _contentManager;
+           }
+       }
+       private GraphicsDevice _graphicsDevice;
+       public GraphicsDevice graphicsDevice
+       {
+           get
+           {
+               return _graphicsDevice;
+           }
+       }
        //Stack of All of our Scenes
         private ArrayList sceneStack = new ArrayList();
-        //Constructor
-        public SceneManager()
+
+        public SceneManager(ContentManager cm, GraphicsDevice gd)
         {
+            _contentManager = cm;
+            _graphicsDevice = gd;
         }
 
-        public void PushScene(Scene newScene){
+        public void addScene(Scene newScene){
             sceneStack.Add(newScene);
-            _currentScene = newScene;
+            _currentScene = (Scene)sceneStack[sceneStack.Count-1];
         }
 
-        public void PopScene(Scene oldScene)
+        public void removeScene(Scene oldScene)
         {
             sceneStack.Remove(oldScene);
             if (sceneStack.Count == 0)
@@ -51,30 +69,19 @@ namespace TestGame
             }
         }
 
-        public void DrawScene(Scene scene,GraphicsDevice graphicsDevice,SpriteBatch spriteBatch,GameTime gametime)
+        public void Update(GameTime gametime)
         {
-            spriteBatch.Begin();
-            graphicsDevice.Clear(Color.Black);
-            Texture2D shape = new Texture2D(graphicsDevice, 1, 1);
-            shape.SetData(new[] { Color.White });
-
-            spriteBatch.Draw(shape, new Rectangle(0, 0, 100, 100), Color.White);
-            spriteBatch.Draw(scene.background, new Rectangle(scene.x, scene.y, scene.width, scene.height), Color.White);
-            foreach(Element element in scene.elements.ToArray()){
-                if (element.visible == true)
-                {
-                    if (element.text == "")
-                    {
-                        spriteBatch.Draw(element.image, new Rectangle(element.x, element.y, element.width, element.height), Color.White);
-                    }
-                    else
-                    {
-                        spriteBatch.DrawString(element.Font, element.text, new Vector2(element.x, element.y), element.color);
-                    }
-                }
+            if(_currentScene != null){
+                _currentScene.Update(gametime);
             }
-            spriteBatch.End();
-            //_currentScene.Draw(gametime);
+        }
+
+        public void Draw(GameTime gametime)
+        {
+            //if (_currentScene != null)
+            //{
+                _currentScene.Draw(gametime);
+            //}
         }
     }
 }

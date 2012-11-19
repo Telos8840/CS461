@@ -12,36 +12,50 @@ using System.Collections;
 
 namespace TestGame
 {
-    class Scene
+   abstract class Scene 
     {
-        public Texture2D background;
         public int height;
         public int width;
         public int x;
         public int y;
-        public bool visible;
-        //array of Elements
-        public ArrayList elements = new ArrayList();
-
-        public void AddElement(Element newElement){
-            elements.Add(newElement);
-        }
-
-        public void RemoveElement(int index)
+        protected ContentManager _contentManager;
+        public ContentManager contentManager
         {
-            elements.RemoveAt(index);
+            get
+            {
+                return _contentManager;
+            }
         }
-        public Scene(int x, int y, Texture2D background)
+        protected GraphicsDevice _graphicsDevice;
+        public GraphicsDevice graphicsDevice
+        {
+            get
+            {
+                return _graphicsDevice;
+            }
+        }
+
+        public Scene()
+        {
+
+        }
+ 
+       public Scene(int x, int y, int h, int w,ContentManager cm, GraphicsDevice gd)
         {
             this.x = x;
             this.y = y;
-            this.width = background.Bounds.Width;
-            this.height = background.Bounds.Height;
-            this.background = background;
+            this.width = w;
+            this.height = h;
+            _contentManager = cm;
+            _graphicsDevice = gd;
         }
-        public Scene(int x, int y, int height, int width, Texture2D background)
-        {
 
+        public virtual void Draw(GameTime gametime)
+        {
+        }
+
+        public virtual void Update(GameTime gametime)
+        {
         }
 
     }

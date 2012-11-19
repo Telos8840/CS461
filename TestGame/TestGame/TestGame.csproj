@@ -107,17 +107,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Element.cs" />
-    <Compile Include="Monster.cs" />
+    <Compile Include="Game1.cs" />
+    <Compile Include="Menus\MainMenu.cs" />
+    <Compile Include="Scenes\PlaygroundScene.cs" />
+    <Compile Include="Unused\Element.cs" />
     <Compile Include="SM\Scene.cs" />
     <Compile Include="SM\SceneManager.cs" />
-    <Compile Include="GSM\StateManager.cs" />
+    <Compile Include="Unused\GSM\StateManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
     <Compile Include="Sprite\Sprite.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="TaskManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
