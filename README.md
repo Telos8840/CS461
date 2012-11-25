@@ -1,7 +1,12 @@
 CS 461 Senior Project (Fall 2012)
 ---
-California Polytechnic State University, Pomona   
-Dr. G.Young
+<strong>California Polytechnic State University, Pomona</strong>   
+Supervisory Professor: Dr. G.Young
+
+<strong>Team Members:</strong><br>
+1) Joseph Afework <br>
+2) Saul Guardado <br>
+3) Sangho "Andrew" Lee <br>
 
 Overview:
 ---
