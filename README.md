@@ -6,7 +6,7 @@ Supervisory Professor: Dr. G.Young
 <strong>Team Members:</strong><br>
 1) <a href="http://www.linkedin.com/pub/joseph-afework/48/531/351">Joseph Afework</a><br>
 2) <a href="http://us.linkedin.com/pub/dir/Saul/Guardado">Saul Guardado</a><br>
-3) <a href="http://www.linkedin.com/profile/view?id=172786221&locale=en_US&trk=tyah">Sangho "Andrew" Lee</a><br>
+3) <a href="http://www.linkedin.com/pub/sangho-lee/49/a48/39?trk=pub-pbmap">Sangho "Andrew" Lee</a><br>
 
 Overview:
 ---
