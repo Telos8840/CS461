@@ -4,9 +4,9 @@ CS 461 Senior Project (Fall 2012)
 Supervisory Professor: Dr. G.Young
 
 <strong>Team Members:</strong><br>
-1) Joseph Afework <br>
-2) Saul Guardado <br>
-3) Sangho "Andrew" Lee <br>
+1) <a href="http://www.linkedin.com/pub/joseph-afework/48/531/351">Joseph Afework</a><br>
+2) <a href="http://www.linkedin.com/profile/view?id=189438110&locale=en_US&trk=tyah">Saul Guardado</a><br>
+3) <a href="http://www.linkedin.com/profile/view?id=172786221&locale=en_US&trk=tyah">Sangho "Andrew" Lee</a><br>
 
 Overview:
 ---
