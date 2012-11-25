@@ -34,8 +34,10 @@ namespace TestGame
             graphics.ApplyChanges();
             scenemanager = new SceneManager(Content, graphics.GraphicsDevice);
             //scenemanager.addScene(new PlaygroundScene(0,0,320,480,Content, graphics.GraphicsDevice));
-            string[] menuText = new String[1];
-            menuText[0] = @"test";
+            string[] menuText = new String[3];
+            menuText[0] = @"New Game";
+            menuText[1] = @"Continue";
+            menuText[2] = @"Settings";
             Scene[] menuDest = new Scene[1];
             menuDest[0] = new PlaygroundScene(0,0,320,480,Content, graphics.GraphicsDevice,scenemanager);
             scenemanager.addScene(new MainMenu(0, 0, 320, 480, Content, graphics.GraphicsDevice,scenemanager,menuText,menuDest));
