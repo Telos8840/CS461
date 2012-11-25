@@ -19,6 +19,7 @@ namespace TestGame
         private SpriteFont spriteFont;
         private SceneManager sceneManager;
         private GraphicsDevice gd;
+        private SoundEffectInstance themeSong;
         private string[] title;
         private Scene[] destination;
         private int selectedindex = 0;
@@ -43,12 +44,23 @@ namespace TestGame
         
         private void Initilize(){
             spritebatch = new SpriteBatch(_graphicsDevice);
-            status = State.available;
         }
 
         private void LoadContent()
         {
             this.spriteFont = _contentManager.Load<SpriteFont>(@"Fonts/Times New Roman");
+            if (themeSong == null)
+            {
+                themeSong = _contentManager.Load<SoundEffect>(@"Music/themesong").CreateInstance();
+            }
+            themeSong.IsLooped = true;
+            themeSong.Play();
+        }
+
+        public override void UnloadContent()
+        {
+            themeSong.Stop();
+            themeSong.Dispose();
         }
 
         public override void Draw(GameTime gametime)
@@ -75,6 +87,10 @@ namespace TestGame
 
         public override void Update(GameTime gametime)
         {
+            if (themeSong.State == SoundState.Stopped)
+            {
+                themeSong.Play();
+            }
             timer += (float)gametime.ElapsedGameTime.TotalMilliseconds;
             KeyboardState pressed = Keyboard.GetState();
             if( timer > 150f){
@@ -98,7 +114,17 @@ namespace TestGame
             }
             if (pressed.IsKeyDown(Keys.Enter))
             {
-                sceneManager.addScene(destination[selectedindex]);
+                if (title[selectedindex] == "End Game")
+                {
+                    themeSong.Stop();
+                    themeSong.Dispose();
+                    sceneManager.exit = true;
+                }
+                else
+                {
+                    themeSong.Stop();
+                    sceneManager.addScene(destination[selectedindex]);
+                }
             }
         }
     }
