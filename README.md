@@ -12,6 +12,11 @@ Overview:
 ---
 The goal of our senior project was to explore rapid game development using Microsoft's <a href="http://msdn.microsoft.com/en-us/library/bb203894.aspx">XNA framework</a>. Using XNA we were able to create a relativly playable game in under 10 weeks called "Insert Name Here".
 
+Requirements:
+---
+In order to compile our code the following is needed:<br>
+1) <a href="http://www.microsoft.com/visualstudio/eng/downloads">Visual Studio 2012</a><br>
+2) <a href ="http://www.microsoft.com/en-us/download/details.aspx?id=23714">XNA Game Studio 4.0 Refresh</a><br>
 Gameplay:
 ---
 Our game is very simillar to the popular handheld Tamagachi games from the late 90's. We used that as a starting point and expanded it to add an in game economy system (see Inventory Store) as well as a unique competitive multiplayer mode.
