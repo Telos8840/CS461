@@ -63,5 +63,13 @@ namespace TestGame
             scenemanager.Draw(gameTime);
             base.Draw(gameTime);
         }
+
+        public SceneManager SceneManager
+        {
+            get { return sceneManager; }
+            internal set { sceneManager = value; }
+        }
+
+        SceneManager sceneManager;
     }
 }
