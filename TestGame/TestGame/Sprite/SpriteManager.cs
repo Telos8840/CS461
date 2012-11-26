@@ -18,16 +18,20 @@ namespace TestGame
         SpriteBatch spriteBatch;
         GraphicsDevice graphicsDevice;
         ContentManager contentManager;
+        SceneManager sceneManager;
         PlaygroundScene scene = new PlaygroundScene();
         Human player;
         ComputerAI enemy;
 
-        public SpriteManager()
+        public SpriteManager(ContentManager cm, GraphicsDevice gd, SceneManager sm, SpriteBatch sb)
         {
-            // TODO: Construct any child components here
+            contentManager = cm;
+            graphicsDevice = gd;
+            sceneManager = sm;
+            spriteBatch = sb;
         }
 
-        protected override void LoadContent()
+        public void LoadContent()
         {
             spriteBatch = new SpriteBatch(graphicsDevice);
 

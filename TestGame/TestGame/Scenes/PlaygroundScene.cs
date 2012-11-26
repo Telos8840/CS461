@@ -66,7 +66,7 @@ namespace TestGame
         
         private void Initilize(){
             spritebatch = new SpriteBatch(_graphicsDevice);
-            spriteManager = new SpriteManager();
+            spriteManager = new SpriteManager(contentManager, graphicsDevice, sceneManager, spritebatch);
             //sceneManager.Game.Components.Add(spriteManager);
             //monsterSprite = new Sprite(32*3,32*3,0,contentManager,graphicsDevice,movedata);
             line = new Texture2D(_graphicsDevice, 1, 1);
