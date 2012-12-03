@@ -19,6 +19,7 @@ namespace TestGame
         GraphicsDevice graphicsDevice;
         ContentManager contentManager;
         SceneManager sceneManager;
+<<<<<<< HEAD
         Human player;
         ComputerAI enemy;
         public int[,] movedata;
@@ -29,6 +30,18 @@ namespace TestGame
             graphicsDevice = gd;
             spriteBatch = sb;
             movedata = md;
+=======
+        PlaygroundScene scene = new PlaygroundScene();
+        Human player;
+        ComputerAI enemy;
+
+        public SpriteManager(ContentManager cm, GraphicsDevice gd, SceneManager sm, SpriteBatch sb)
+        {
+            contentManager = cm;
+            graphicsDevice = gd;
+            sceneManager = sm;
+            spriteBatch = sb;
+>>>>>>> ac2bd630d1c089c390c78a5c8b3b0095e3695b56
         }
 
         public void LoadContent()
@@ -41,14 +54,22 @@ namespace TestGame
                 new Point(42, 42),
                 new Vector2(32 * 3, 32 * 3),
                 Vector2.Zero,
+<<<<<<< HEAD
                 10, 0, movedata);
+=======
+                10, 0, scene.MoveData);
+>>>>>>> ac2bd630d1c089c390c78a5c8b3b0095e3695b56
 
             enemy = new ComputerAI(
                 contentManager.Load<Texture2D>(@"Sprites/player"),
                 new Point(42, 42),
                 new Vector2(60 * 3, 60 * 3),
                 Vector2.Zero,
+<<<<<<< HEAD
                 10, 0, movedata);
+=======
+                10, 0, scene.MoveData);
+>>>>>>> ac2bd630d1c089c390c78a5c8b3b0095e3695b56
             //enemy.SetWaypoints(scene.Waypoints);
 
             //base.LoadContent();
