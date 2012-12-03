@@ -34,7 +34,8 @@ namespace TestGame
             graphics.ApplyChanges();
             scenemanager = new SceneManager(Content, graphics.GraphicsDevice);
             //scenemanager.addScene(new PlaygroundScene(0,0,320,480,Content, graphics.GraphicsDevice));
-            string[] menuText = {"New Game","Continue","Settings","End Game"};
+            string[] menuText = new String[1];
+            menuText[0] = @"test";
             Scene[] menuDest = new Scene[1];
             menuDest[0] = new PlaygroundScene(0,0,320,480,Content, graphics.GraphicsDevice,scenemanager);
             scenemanager.addScene(new MainMenu(0, 0, 320, 480, Content, graphics.GraphicsDevice,scenemanager,menuText,menuDest));
@@ -43,25 +44,18 @@ namespace TestGame
 
         protected override void LoadContent()
         {
+
         }
 
         protected override void UnloadContent()
         {
-            scenemanager.UnloadContent();
             // TODO: Unload any non ContentManager content here
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (scenemanager.exit)
-            {
-                this.Exit();
-            }
-            else
-            {
-                scenemanager.Update(gameTime);
-                base.Update(gameTime);
-            }
+            scenemanager.Update(gameTime);
+            base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -69,5 +63,13 @@ namespace TestGame
             scenemanager.Draw(gameTime);
             base.Draw(gameTime);
         }
+
+        public SceneManager SceneManager
+        {
+            get { return sceneManager; }
+            internal set { sceneManager = value; }
+        }
+
+        SceneManager sceneManager;
     }
 }

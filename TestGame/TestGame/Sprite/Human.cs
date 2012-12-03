@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -9,88 +9,34 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using System.Diagnostics;
 
 namespace TestGame
 {
-    abstract class Sprite
+    class Human : Sprite
     {
-        public Vector2 position;
-        protected GraphicsDevice graphicsDevice;
-        protected ContentManager contentManager;
-        //protected SpriteBatch spriteBatch;
-        protected Texture2D image;
-        protected KeyboardState oldState;
-        protected int curFrame = 0;
-        protected int direction = 0;
-        protected float timer = 0f;
-        protected bool walking = false;
-        protected bool keepmoving = false;
-        protected int[,] movedata;
-        protected int type;
-        protected State status = new State();
-        protected Point playerFrameSize;
-        protected Vector2 velocity;
-        protected int collisionOffset;
-        //Texture2D line;
-
-        protected enum State
-        {
-            Waiting,
-            MoveRight,
-            MoveLeft,
-            MoveUp,
-            MoveDown
-        }
-
-        public Sprite(int x, int y, int type, ContentManager cm, GraphicsDevice gd, int [,] movedata)
-        {
-            this.movedata = movedata;
-            position = new Vector2(x, y);
-            contentManager = cm;
-            graphicsDevice = gd;
-            //Initialize();
-            //LoadContent();
-            status = State.Waiting;
-        }
-
-        /*
-        public Sprite(Texture2D player1, Point playerFrameSize, Vector2 playerPosition, Vector2 velocity,
-            int collisionOffset, int curFrame, int direction, float timer, bool walking, bool keepmoving)
-            : this(player1, playerFrameSize,
-                playerPosition, velocity, collisionOffset, curFrame, direction, timer, walking, keepmoving, defaultMSPerFrame)
+        public Human(Texture2D image, Point playerFrameSize, Vector2 position, Vector2 velocity, 
+            int collisionOffset, int type, int[,] movedata) 
+            : base(image, playerFrameSize, position, velocity, collisionOffset, type, movedata)
         { }
-        */
-        public Sprite(Texture2D image, Point playerFrameSize, Vector2 position, Vector2 velocity, 
-            int collisionOffset, int type, int[,] movedata)
+
+  /*      public override Vector2 Direction
         {
-            this.image = image;
-            this.playerFrameSize = playerFrameSize;
-            this.position = position;
-            this.velocity = velocity;
-            this.collisionOffset = collisionOffset;
-            this.type = type;
-            this.movedata = movedata;
-            //Initialize();
-            //LoadContent();
-            status = State.Waiting;
-        }
-/*
-        public void Initialize()
-        {
-            spriteBatch = new SpriteBatch(graphicsDevice);
-        }
-        /*
-        public void LoadContent()
-        {
-            image = contentManager.Load<Texture2D>(@"Sprites/player");
-        }
-        */
-        public virtual void Draw(GameTime gametime, SpriteBatch spriteBatch)
-        {
-            //spriteBatch.Begin();
-            spriteBatch.Draw(image, position, new Rectangle(curFrame * 32 / 2, direction * 40 / 2, 16, 39 / 2), Color.White, 0, Vector2.Zero, new Vector2(3f, 2.461538461538461538f), SpriteEffects.None, 0);
-            //spriteBatch.End();
-        }
+            get {
+                Vector2 inputDirection = Vector2.Zero;
+
+                if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                    inputDirection.X -= 4;
+                if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                    inputDirection.X += 4;
+                if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                    inputDirection.Y -= 4;
+                if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                    inputDirection.Y += 4;
+
+                return inputDirection * speed;
+            }
+        } */
 
         public virtual void Update(GameTime gametime)
         {
@@ -102,7 +48,7 @@ namespace TestGame
             switch (status)
             {
                 //(movedata[(int)(((position.Y + 48) / 48) % 16), (int)((position.X / 48) % 16)] == 0)
-                
+
                 case State.Waiting:
                     {
                         if (newState.IsKeyDown(Keys.Right))
@@ -121,7 +67,7 @@ namespace TestGame
                         {
                             status = State.MoveDown;
                         }
-                        
+
                         break;
                     }
 
@@ -189,7 +135,8 @@ namespace TestGame
                                     status = State.Waiting;
                                 }
                             }
-                            else{
+                            else
+                            {
                                 keepmoving = false;
                                 walking = false;
                                 status = State.Waiting;
@@ -208,7 +155,7 @@ namespace TestGame
                     {
                         if (walking)
                         {
-                            if (movedata[(int)(((position.Y-1) / 48) % 16), (int)((position.X / 48) % 16)] == 0 && keepmoving)
+                            if (movedata[(int)(((position.Y - 1) / 48) % 16), (int)((position.X / 48) % 16)] == 0 && keepmoving)
                             {
                                 position.Y -= 4;
                                 keepmoving = true;
@@ -249,7 +196,7 @@ namespace TestGame
                     {
                         if (walking)
                         {
-                            if (movedata[(int)(((position.Y) / 48) % 16), (int)(((position.X-1 ) / 48) % 16)] == 0 && keepmoving)
+                            if (movedata[(int)(((position.Y) / 48) % 16), (int)(((position.X - 1) / 48) % 16)] == 0 && keepmoving)
                             {
                                 position.X -= 4;
                                 keepmoving = true;
@@ -287,18 +234,6 @@ namespace TestGame
                     }
             }
             oldState = newState;
-        }
-
-        public Rectangle collisionRect
-        {
-            get
-            {
-                return new Rectangle(
-                    (int)position.X + collisionOffset,
-                    (int)position.Y + collisionOffset,
-                    playerFrameSize.X - (collisionOffset * 2),
-                    playerFrameSize.Y - (collisionOffset * 2));
-            }
         }
     }
 }

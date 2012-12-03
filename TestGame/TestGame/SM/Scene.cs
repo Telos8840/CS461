@@ -50,9 +50,6 @@ namespace TestGame
             _graphicsDevice = gd;
         }
 
-       public virtual void UnloadContent()
-       {
-       }
         public virtual void Draw(GameTime gametime)
         {
         }
@@ -60,6 +57,8 @@ namespace TestGame
         public virtual void Update(GameTime gametime)
         {
         }
+
+        
 
     }
 }

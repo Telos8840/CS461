@@ -14,7 +14,6 @@ namespace TestGame
     class SceneManager
     {
        //Refferes to the current Scene 
-       public bool exit = false;
        private Scene _currentScene;
        public Scene currentScene
        {
@@ -68,11 +67,6 @@ namespace TestGame
             {
                 _currentScene = (Scene)sceneStack[sceneStack.Count - 1];
             }
-        }
-
-        public void UnloadContent()
-        {
-            currentScene.UnloadContent();
         }
 
         public void Update(GameTime gametime)
